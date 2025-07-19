@@ -2,7 +2,7 @@
 
 A modern desktop application built with Electron to help you maintain healthy habits throughout your workday with timely reminders for hydration, exercise, eye care, and posture checks.
 
-![Health Reminder App](assets/Health%20Reminder.png)
+![Health Reminder App](assets/Health%20Reminder1.png)
 
 ## ✨ Features
 
