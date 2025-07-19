@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Health & Wellness Reminder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Professional Sidebar -->
+    <div class="app-container">
+        <div class="sidebar-nav">
+            <div class="sidebar-header">
+                <h3>🌟 Health Hub</h3>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <div class="menu-item active" data-section="dashboard">
+                    <span class="menu-icon">📊</span>
+                    <span class="menu-text">Dashboard</span>
+                </div>
+                <div class="menu-item" data-section="hydration">
+                    <span class="menu-icon">💧</span>
+                    <span class="menu-text">Hydration</span>
+                </div>
+                <div class="menu-item" data-section="exercise">
+                    <span class="menu-icon">🏃‍♂️</span>
+                    <span class="menu-text">Exercise</span>
+                </div>
+                <div class="menu-item" data-section="eyecare">
+                    <span class="menu-icon">👁️</span>
+                    <span class="menu-text">Eye Care</span>
+                </div>
+                <div class="menu-item" data-section="posture">
+                    <span class="menu-icon">🪑</span>
+                    <span class="menu-text">Posture</span>
+                </div>
+                <div class="menu-item" data-section="custom">
+                    <span class="menu-icon">⚙️</span>
+                    <span class="menu-text">Custom</span>
+                </div>
+                <div class="menu-item" data-section="statistics">
+                    <span class="menu-icon">📈</span>
+                    <span class="menu-text">Statistics</span>
+                </div>
+                <div class="menu-item" data-section="settings">
+                    <span class="menu-icon">🛠️</span>
+                    <span class="menu-text">Settings</span>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <!-- Theme Toggle -->
+                <div class="theme-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="theme-label">Dark Mode</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <div class="content-header">
+                <h1 id="sectionTitle">Health Dashboard</h1>
+                <div class="header-actions">
+                    <button id="pauseButton" class="btn-secondary">
+                        <span id="pauseText">Pause Reminders</span>
+                    </button>
+                    <button id="saveButton" class="btn-primary">
+                        💾 Save Settings
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div id="dashboard-section" class="content-section active">
+                <div class="progress-overview">
+                    <h3>📈 Today's Progress</h3>
+                    <div class="progress-cards">
+                        <div class="progress-card">
+                            <div class="card-icon">💧</div>
+                            <div class="card-title">Hydration</div>
+                            <div class="card-count"><span id="hydrationCount">0</span> times</div>
+                            <div class="card-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="hydrationProgress"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-card">
+                            <div class="card-icon">🏃‍♂️</div>
+                            <div class="card-title">Exercises</div>
+                            <div class="card-count"><span id="exerciseCount">0</span> completed</div>
+                            <div class="card-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="exerciseProgress"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-card">
+                            <div class="card-icon">👁️</div>
+                            <div class="card-title">Eye Care</div>
+                            <div class="card-count"><span id="eyeCareCount">0</span> breaks</div>
+                            <div class="card-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="eyeCareProgress"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-card">
+                            <div class="card-icon">🪑</div>
+                            <div class="card-title">Posture</div>
+                            <div class="card-count"><span id="postureCheckCount">0</span> checks</div>
+                            <div class="card-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="postureProgress"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-card">
+                            <div class="card-icon">⏱️</div>
+                            <div class="card-title">Focus Time</div>
+                            <div class="card-count"><span id="focusTime">0</span> min</div>
+                            <div class="card-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="focusProgress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wellness Analytics -->
+                <div class="analytics-overview">
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h4>Daily Health Score</h4>
+                            <div class="health-score">
+                                <div class="score-circle">
+                                    <span id="healthScore">85</span>%
+                                </div>
+                                <div class="score-breakdown">
+                                    <div class="breakdown-item">
+                                        <span class="breakdown-label">Hydration</span>
+                                        <div class="breakdown-bar">
+                                            <div class="breakdown-fill" id="hydrationBreakdown"></div>
+                                        </div>
+                                    </div>
+                                    <div class="breakdown-item">
+                                        <span class="breakdown-label">Exercise</span>
+                                        <div class="breakdown-bar">
+                                            <div class="breakdown-fill" id="exerciseBreakdown"></div>
+                                        </div>
+                                    </div>
+                                    <div class="breakdown-item">
+                                        <span class="breakdown-label">Eye Care</span>
+                                        <div class="breakdown-bar">
+                                            <div class="breakdown-fill" id="eyeCareBreakdown"></div>
+                                        </div>
+                                    </div>
+                                    <div class="breakdown-item">
+                                        <span class="breakdown-label">Posture</span>
+                                        <div class="breakdown-bar">
+                                            <div class="breakdown-fill" id="postureBreakdown"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Today's Achievements</h4>
+                            <div id="achievementsList">
+                                <div class="achievement-placeholder">
+                                    Complete health activities to earn achievements!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hydration Section -->
+            <div id="hydration-section" class="content-section">
+                <div class="settings-card">
+                    <h3>💧 Hydration Reminder</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Reminder Interval (minutes):</label>
+                            <input type="number" id="hydrationInterval" value="60" min="1" max="480" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise Section -->
+            <div id="exercise-section" class="content-section">
+                <div class="settings-card">
+                    <h3>🏃‍♂️ Exercise Reminder</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Reminder Interval (minutes):</label>
+                            <input type="number" id="exerciseInterval" value="120" min="1" max="480" />
+                        </div>
+                        <div class="form-group">
+                            <label>Exercise Type:</label>
+                            <select id="exerciseType">
+                                <option value="stretch">Stretching</option>
+                                <option value="desk">Desk Exercise</option>
+                                <option value="walk">Quick Walk</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eye Care Section -->
+            <div id="eyecare-section" class="content-section">
+                <div class="settings-card">
+                    <h3>👁️ Eye Care & Screen Health</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="eyeCareEnabled" checked />
+                                <span class="checkmark"></span>
+                                Enable 20-20-20 Rule Reminders
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Eye care interval (minutes):</label>
+                            <input type="number" id="eyeCareInterval" value="20" min="5" max="60" />
+                        </div>
+                        <div class="form-group">
+                            <label>Break enforcement:</label>
+                            <select id="breakMode">
+                                <option value="soft">Gentle reminder</option>
+                                <option value="enforced">Enforce break (block screen)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Posture Section -->
+            <div id="posture-section" class="content-section">
+                <div class="settings-card">
+                    <h3>🪑 Posture & Ergonomics</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="postureReminder" checked />
+                                <span class="checkmark"></span>
+                                Enable Posture Check Reminders
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Posture check interval (minutes):</label>
+                            <input type="number" id="postureInterval" value="60" min="15" max="180" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Section -->
+            <div id="custom-section" class="content-section">
+                <div class="settings-card">
+                    <h3>⚙️ Custom Reminder</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Custom Message:</label>
+                            <input type="text" id="customMessage" placeholder="Enter custom reminder message" />
+                        </div>
+                        <div class="form-group">
+                            <label>Interval (minutes):</label>
+                            <input type="number" id="customInterval" value="30" min="1" max="480" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Exercises -->
+                <div class="settings-card">
+                    <h3>🎯 Custom Exercises</h3>
+                    <div class="custom-exercise-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Category:</label>
+                                <input type="text" id="exerciseCategory" list="exerciseCategories" placeholder="e.g., Yoga, Stretching">
+                                <datalist id="exerciseCategories"></datalist>
+                            </div>
+                            <div class="form-group">
+                                <label>Exercise Title:</label>
+                                <input type="text" id="exerciseTitle" placeholder="e.g., Deep Breathing">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Steps:</label>
+                            <textarea id="exerciseSteps" placeholder="Enter each step on a new line"></textarea>
+                        </div>
+                        <button id="addExerciseBtn" class="btn-primary">Add Exercise</button>
+                    </div>
+
+                    <div class="custom-exercises-list">
+                        <h4>Your Custom Exercises</h4>
+                        <select id="categoryFilter">
+                            <option value="all">All Categories</option>
+                        </select>
+                        <div id="exercisesList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics Section -->
+            <div id="statistics-section" class="content-section">
+                <div class="settings-card">
+                    <h3>📈 Health Statistics</h3>
+                    <div class="stats-view-controls">
+                        <button id="weeklyView" class="btn-secondary active">Weekly</button>
+                        <button id="monthlyView" class="btn-secondary">Monthly</button>
+                    </div>
+                    <div class="stats-placeholder">
+                        Statistics charts will be displayed here
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div id="settings-section" class="content-section">
+                <div class="settings-card">
+                    <h3>🛠️ General Settings</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remindersActive" checked />
+                                <span class="checkmark"></span>
+                                Enable All Reminders
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="workHoursOnly" />
+                                <span class="checkmark"></span>
+                                Only during work hours
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Work Start Time:</label>
+                            <input type="time" id="workStartTime" value="09:00">
+                        </div>
+                        <div class="form-group">
+                            <label>Work End Time:</label>
+                            <input type="time" id="workEndTime" value="17:00">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Notification Sound:</label>
+                            <select id="notificationSound">
+                                <option value="default">Default</option>
+                                <option value="bell">Bell</option>
+                                <option value="chime">Chime</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exercise Guide Modal -->
+    <div id="exerciseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h2>Exercise Guide</h2>
+            <div id="exerciseInstructions"></div>
+            <button id="completeExerciseButton" class="btn-primary">Complete</button>
+        </div>
+    </div>
+
+    <div id="status"></div>
+    <script src="renderer.js"></script>
+</body>
+</html>

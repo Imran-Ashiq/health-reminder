@@ -1,0 +1,60 @@
+{
+  "name": "health-reminder",
+  "version": "1.0.0",
+  "description": "Health & Wellness Reminder - Stay healthy with timely reminders for hydration, exercise, eye care, and posture",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --enable-logging",
+    "package": "electron-builder build --win --appx",
+    "make": "electron-builder build",
+    "clean": "rimraf dist/ build/ node_modules/",
+    "reinstall": "npm run clean && npm install"
+  },
+  "keywords": [
+    "health",
+    "wellness", 
+    "reminder",
+    "productivity",
+    "electron",
+    "desktop-app",
+    "eye-care",
+    "posture",
+    "hydration",
+    "exercise"
+  ],
+  "author": "Muhammad Imran",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Imran-Ashiq/health-reminder.git"
+  },
+  "homepage": "https://github.com/Imran-Ashiq/health-reminder#readme",
+  "bugs": {
+    "url": "https://github.com/Imran-Ashiq/health-reminder/issues"
+  },
+  "devDependencies": {
+    "electron": "^34.2.0",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.8",
+    "electron-store": "^10.0.1",
+    "node-notifier": "^10.0.1"
+  },
+  "build": {
+    "appId": "com.healthreminder.app",
+    "productName": "Health Reminder",
+    "win": {
+      "icon": "assets/Health Reminder1.ico",
+      "target": ["appx"]
+    },
+    "files": [
+      "**/*",
+      "!node_modules/**/*",
+      "node_modules/chart.js/**/*",
+      "node_modules/electron-store/**/*", 
+      "node_modules/node-notifier/**/*"
+    ]
+  }
+}
